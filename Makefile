@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:06:57 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/22 02:30:15 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/22 02:32:33 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ FILES:= \
 #-------libft--------
 LIBFT_DIR:=./libft/
 
-CC:=gcc -g
+CC:=gcc
 SOURCES_DIR:=srcs/
 HEADER_DIR:=includes/
 OBJECTS_DIR:=objs/
