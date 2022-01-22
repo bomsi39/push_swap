@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:06:57 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/22 01:28:46 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/22 02:30:15 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,22 +90,19 @@ clean:
 	@$(MAKE) -sC $(LIBFT_DIR) clean
 	@rm -f $(CACHE)
 	@rm -rf $(OBJECTS_DIR)
-	@echo $(GREEN) "-> $(NAME_PS) cache cleaned"
-	@echo $(GREEN) "-> $(NAME_CH) cache cleaned"
+	@echo $(GREEN) " -> $(NAME_PS) cache cleaned"
+	@echo $(GREEN) " -> $(NAME_CH) cache cleaned"
 
 fclean: clean
 	@rm -f $(NAME_PS)
 	@rm -f $(NAME_CH)
 	@$(MAKE) -sC $(LIBFT_DIR) fclean
-	@echo $(BRED) " -> $(NAME_PS) deleted"
-	@echo $(BRED) " -> $(NAME_CH) deleted"
+	@echo $(RED)"  -> $(NAME_PS) deleted"
+	@echo $(RED)"  -> $(NAME_CH) deleted"
 
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
-
-print: 
-	@echo "$(CC) $(CFLAGS) $(LFLAGS) $(SOURCES) $(SOURCES_PS) -o $@"
 
 .PHONY: all clean fclean re
 
