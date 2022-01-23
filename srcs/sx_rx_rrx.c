@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:18:52 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 23:27:54 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 19:39:31 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	sx(t_stack *stack)
 	}
 }
 
-/* Comment */
-
 void	rx(t_stack *stack)
 {
 	t_node	*fir;
@@ -53,8 +51,6 @@ void	rx(t_stack *stack)
 	}
 }
 
-/* Comment */
-
 void	rrx(t_stack *stack)
 {
 	t_node	*fir;
@@ -72,8 +68,6 @@ void	rrx(t_stack *stack)
 		stack->top = lst;
 	}
 }
-
-/* Comment */
 
 void	rr(t_stack *stack_a, t_stack *stack_b)
 {

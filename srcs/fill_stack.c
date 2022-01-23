@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 19:31:45 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 15:30:19 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 17:54:16 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	fill_stack(t_stack *stack, t_node *node)
 	if (node->above == NULL)
 	{
 		if (stack->top != NULL)
-			terminate(1);
+			terminate(ERR);
 		stack->top = node;
 	}
 	else
@@ -37,7 +37,7 @@ void	create_node(t_stack *stack, int nbr)
 	i += 1;
 	node = malloc(sizeof(t_node));
 	if (!node)
-		terminate(1);
+		terminate(ERR);
 	node->value = nbr;
 	node->index = 0;
 	node->pos = i;
@@ -54,18 +54,22 @@ t_stack	*create_stack(void)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		terminate(1);
+		terminate(ERR);
 	stack->top = NULL;
 	stack->bottom = NULL;
+	stack->id = A;
 	stack->nbrs = 0;
 	stack->valid = true;
 	stack->chnks = 0;
 	stack->c_chnk = 0;
 	stack->rb_count = 0;
-	stack->trg = 0;
+	stack->trg = -1;
 	stack->t_pos = 0;
-	stack->id = A;
 	return (stack);
 }
 
-/* Comment */
+/*
+c_chnk = current chunk
+stack->trg is used to save a target number in ft_push_swap
+stack->trg = -1 is used for flaging segfaults for px in ft_checker
+*/

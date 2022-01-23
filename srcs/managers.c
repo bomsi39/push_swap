@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:16:33 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 23:28:27 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 18:04:49 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ void	alg_manager(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-/* Comment */
+/*
+Manages three different sorting algorithms,
+One for numbers 2-3.
+One for numbers 4 - 10.
+One for numbers 11 - 500.
+*/
 
 void	ops_sx(t_stack *stack)
 {
@@ -41,6 +46,10 @@ void	ops_sx(t_stack *stack)
 		ft_putendl_fd("sb", 1);
 	}
 }
+
+/*
+Holds sx and prints correct operation
+*/
 
 void	ops_rx(t_stack *stack, int op)
 {
@@ -66,7 +75,9 @@ void	ops_rx(t_stack *stack, int op)
 	}
 }
 
-/* Comment */
+/*
+Holds rx && rrx and prints correct operation
+*/
 
 void	ops_2(t_stack *src, t_stack *dst, int op)
 {
@@ -92,4 +103,6 @@ void	ops_2(t_stack *src, t_stack *dst, int op)
 	}
 }
 
-/* Comment */
+/*
+Holds px, rr & rrr and prints correct operation
+*/

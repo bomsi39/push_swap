@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:54:00 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/22 01:17:18 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 18:29:08 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ void	sort_10(t_stack *dst, t_stack *hold)
 		ops_2(hold, dst, PX);
 }
 
+/*
+sort_10 sorts stacks with up to 10 nodes.
+For stack_a at first the smallest value needs to be found by get_min_max.
+If the position of this number is in the first half of the stack, i use rx
+to bring the number to the top of the stack.
+If the position of this number is in the second half of the stack, i use rrx
+to bring the number to the bottom and then the top of the stack.
+This way is save operations.
+If the smallest value is on top of the stack, i push it to the hold stack, who
+collects the smallest values in the descending order.
+If stack_a is sorted correctly, pa is used to push the collected numbers back
+to the stack_a.
+For stack_b the same function does the same in the inverted order. This will be
+used by the sort_500 functions.
+*/
+
 void	sort_3(t_stack *stack)
 {
 	t_node	*fir;
@@ -65,3 +81,11 @@ void	sort_3(t_stack *stack)
 			ops_rx(stack, RX);
 	}
 }
+
+/*
+sort_3 sorts stacks with 2-3 nodes. 
+For stack_a the nodes will be sorted from lowest value at top to
+highest at bottom.
+For stack_b the nodes will be sorted in reverse from highest value at top to
+lowest at bottom.
+*/

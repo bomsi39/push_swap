@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:14:46 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/22 01:25:10 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 19:43:55 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ bool	duplicates(t_stack *stack)
 	return (false);
 }
 
-/* Comment */
+/*
+Checks the stack for duplicates and returns true / false
+*/
 
 bool	issorted(t_stack *stack)
 {
@@ -53,10 +55,16 @@ bool	issorted(t_stack *stack)
 		compare = compare->below;
 		i++;
 	}
+	if (!stack->top)
+		return (false);
 	return (true);
 }
 
-/* Comment */
+/*
+Checks if the stack is sorted.
+For stack a in ascending order.
+For stack b in descending order.
+*/
 
 void	positions(t_stack *stack)
 {
@@ -73,6 +81,10 @@ void	positions(t_stack *stack)
 		i++;
 	}
 }
+
+/*
+Fills node->position with the position of the node in the stack
+*/
 
 void	get_min_max(t_stack *stack)
 {
@@ -93,7 +105,11 @@ void	get_min_max(t_stack *stack)
 	stack->t_pos = min_max->pos;
 }
 
-/* Comment */
+/*
+Determines the minimum value of stack_a and gives its position to
+stack-t_pos.
+For stack_b it determines the maximum of the stack.
+*/
 
 void	get_target(t_stack *stack_a)
 {
@@ -120,4 +136,8 @@ void	get_target(t_stack *stack_a)
 	}
 }
 
-/* comment */
+/*
+Determines the targets and give its position to
+stack-t_pos.
+Searches from top and bottom per loop.
+*/

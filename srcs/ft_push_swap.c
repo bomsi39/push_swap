@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:00:06 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 14:48:22 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/23 12:30:12 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,11 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-/* Comment */
+/*
+Push_swap reads the given arguments, checks their validation & adds them
+in parse to stack_a. 
+If the input is valid, an empty stack_b will be created.
+A suitable algorithm for the given stack lengh will be determined and
+executed in alg_manager.
+Stacks will be freed.
+*/

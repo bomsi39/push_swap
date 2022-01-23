@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:19:27 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 14:28:32 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 18:02:11 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	swap_s(t_node *node, t_node *node2)
 	node2->value = tmp;
 }
 
-/* Comment */
-
-void	sort_s(t_stack *stack_i)
+void	sort_i(t_stack *stack_i)
 {
 	t_node	*start;
 	t_node	*node;
@@ -47,8 +45,6 @@ void	sort_s(t_stack *stack_i)
 	}
 	positions(stack_i);
 }
-
-/* Comment */
 
 void	pass_index(t_stack *stack_a, t_stack *stack_i)
 {
@@ -75,8 +71,6 @@ void	pass_index(t_stack *stack_a, t_stack *stack_i)
 	}
 }
 
-/* Comment */
-
 void	copy_stack(t_stack *src, t_stack *dst)
 {
 	t_node	*node;
@@ -90,17 +84,22 @@ void	copy_stack(t_stack *src, t_stack *dst)
 	}
 }
 
-/* Comment */
-
 void	index_a(t_stack *stack)
 {
 	t_stack	*stack_i;
 
 	stack_i = create_stack();
 	copy_stack(stack, stack_i);
-	sort_s(stack_i);
+	sort_i(stack_i);
 	pass_index(stack, stack_i);
 	free_stack(stack_i);
 }
 
-/* Comment */
+/*
+Complicated approach to index the numbers of stack_a.
+Stack_a is copied to a new created new stack_i.
+In sort_i, stack_i is sorted via bubble swap from low to high values, then
+stack_i->positions wil get the position of every node.
+In pass_index matching values from stack_a && stack_i are searched and position
+of stack_i->node will be the the index of the node from stack_a
+*/

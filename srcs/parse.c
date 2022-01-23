@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:45:59 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 23:00:46 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 18:11:35 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	parse_str(char *argv, t_stack *stack)
 	while (nbrs[i])
 	{
 		if (!ft_isstrint(nbrs[i]))
-			stack->valid = terminate(1);
+			stack->valid = terminate(ERR);
 		create_node(stack, atol(nbrs[i]));
 		free(nbrs[i]);
 		i++;
@@ -30,7 +30,9 @@ void	parse_str(char *argv, t_stack *stack)
 	free(nbrs);
 }
 
-/* Explain what parse_str does*/
+/*
+Argument will get seperated, checked if they are integers and added to stack
+*/
 
 void	parse_nbr(char **argv, t_stack *stack)
 {
@@ -40,13 +42,15 @@ void	parse_nbr(char **argv, t_stack *stack)
 	while (argv[i])
 	{
 		if (!ft_isstrint(argv[i]))
-			stack->valid = terminate(1);
+			stack->valid = terminate(ERR);
 		create_node(stack, atol(argv[i]));
 		i++;
 	}
 }
 
-/* Explain what parse_nbr does*/
+/*
+Arguments are checked if they are integers and added to stack
+*/
 
 t_stack	*parse(char **argv, int argc)
 {
@@ -58,8 +62,14 @@ t_stack	*parse(char **argv, int argc)
 	else
 		parse_nbr(argv, stack);
 	if (duplicates(stack) && stack->valid)
-		stack->valid = terminate(1);
+		stack->valid = terminate(ERR);
 	return (stack);
 }
 
-/* Comment */
+/*
+parse takes arguments, checks them if they are a string "43 23 12" or
+an array "43" "23" "12"
+If str, parsing is done via parse_str.
+If array, parsing is done via parse_nbr.
+Finally the created stack will be checked for duplicate numbers.
+*/

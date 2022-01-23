@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 18:50:27 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 14:50:12 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 18:14:45 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,16 @@ void	px(t_stack *src, t_stack *dst)
 {	
 	t_node	*pop;
 
-	pop = pop_node(src);
-	push_node(dst, pop);
+	if (src->nbrs != 0)
+	{
+		pop = pop_node(src);
+		push_node(dst, pop);
+	}
+	else
+		src->trg = 0;
 }
+
+/*
+If source stack is not empty, first node will popped and pushed to the top
+of dst stack.
+*/
