@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:53:49 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/23 12:29:55 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/25 11:41:02 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	use_op(t_stack *stack_a, t_stack *stack_b, char *name)
 		rr(stack_a, stack_b);
 	else if (!ft_strcmp(name, "rrr\n"))
 		rrr(stack_a, stack_b);
+	else if (!ft_isnl(name))
+		stack_a->valid = terminate(ERR);
 }
 
 //void	create_oplst(t_ops *op, char	*line)
@@ -66,16 +68,14 @@ void	get_ops(t_stack *stack_a, t_stack *stack_b)
 {
 	t_list	*op;
 	t_list	*tmp;
-	int		nl;
 
 	stack_b->id = B;
 	op = NULL;
-	while (op == NULL || op)
+	while (op || !op)
 	{
 		ft_lstadd_back(&op, ft_lstnew(get_next_line(0)));
 		tmp = ft_lstlast(op);
-		nl = ((int *)tmp->content)[0];
-		if (!tmp->content || nl == '\n')
+		if (ft_isnl(tmp->content))
 			break ;
 	}
 	while (op)
@@ -103,13 +103,11 @@ int	main(int argc, char **argv)
 	if (2 <= argc)
 	{
 		stack_a = parse(argv, argc);
+		stack_b = create_stack();
+		get_ops(stack_a, stack_b);
 		if (stack_a->valid)
-		{
-			stack_b = create_stack();
-			get_ops(stack_a, stack_b);
 			print_out(stack_a, stack_b);
-			free_stack(stack_b);
-		}
+		free_stack(stack_b);
 		free_stack(stack_a);
 	}
 	return (0);

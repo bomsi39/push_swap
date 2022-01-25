@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:00:06 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/23 12:30:12 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/25 11:40:00 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 		if (stack_a->valid)
 		{
 			stack_b = create_stack();
+			stack_b->id = B;
 			alg_manager(stack_a, stack_b);
 			free_stack(stack_b);
 		}

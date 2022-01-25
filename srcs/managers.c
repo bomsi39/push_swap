@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:16:33 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/22 18:04:49 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/25 11:39:50 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	alg_manager(t_stack *stack_a, t_stack *stack_b)
 {
-	stack_b->id = B;
 	if (!issorted(stack_a) && stack_a->nbrs > 0)
 	{
 		if (stack_a->nbrs <= 3)
