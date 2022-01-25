@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:06:57 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/23 17:00:04 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/25 11:49:55 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,12 +67,12 @@ all: $(NAME_PS) $(NAME_CH)
 $(NAME_PS): $(OBJECTS) $(OBJECTS_PS)
 	@cd $(LIBFT_DIR) && $(MAKE)
 	@echo $(PURPLE) " -> Compiling $@" $(RED)
-	@$(CC) $(CFLAGS) $(LFLAGS) $(SOURCES) $(SOURCES_PS) -o $@
+	@$(CC) $(CFLAGS) $(SOURCES) $(SOURCES_PS) -o $@ $(LFLAGS)
 	@echo $(BGREEN) " -> OK" $(EOC)
 
 $(NAME_CH): $(OBJECTS) $(OBJECTS_CH)
 	@echo $(PURPLE) " -> Compiling $@" $(RED)
-	@$(CC) $(CFLAGS) $(LFLAGS) $(SOURCES) $(SOURCES_DIR)$(FILE_CH).c -o $@
+	@$(CC) $(CFLAGS) $(SOURCES) $(SOURCES_DIR)$(FILE_CH).c -o $@ $(LFLAGS)
 	@echo $(BGREEN) " -> OK" $(EOC)
 
 $(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c | $(CACHE)
